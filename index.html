@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Calculator</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <style>
+      .form-select {
+        width: 50%;
+        text-align: center;
+      }
+      #part-one {
+        display: flex;
+      }
+      #form-boxes {
+        width: 50%;
+      }
+      .interest-section {
+        display: none;
+      }
+      .mpay-section {
+        display: none;
+      }
+      .month-section {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <div class="container">
+        <div class="text-primary text-center">
+          <h1 class="display-1">Loan Calculator</h1>
+          <div class="card border-primary mt-5">
+            <form class="form">
+              <div class="mb-3">
+                <label for="calculation-type" class="form-label">
+                  <span class="fs-1"> Choose a Calculation </span>
+                </label>
+                <center>
+                  <select
+                    name="calculation-type"
+                    id="calculation-type"
+                    class="form-select border-primary"
+                    onchange="show()"
+                  >
+                    <option value="loan">Find the Loan Amount</option>
+                    <option value="interest">Find the Interest Rate</option>
+                    <option value="month">Find the Number of Month</option>
+                    <option value="mpay">Find the Monthly Payment</option>
+                  </select>
+                  <!-- <button class=" btn border-primary m-2" class="btn-type">Submit</button> -->
+                </center>
+              </div>
+              <center>
+                <!-- Loan Calculation -->
+                <div class="loan-section">
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Interest</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="%"
+                      aria-describedby="addon-wrapping"
+                      id="interest_val"
+                    />
+                  </div>
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Number Of Month</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Months"
+                      aria-describedby="addon-wrapping"
+                      id="month_val"
+                    />
+                  </div>
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Monthly Payment</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="₹₹₹"
+                      aria-describedby="addon-wrapping"
+                      id="mpay_val"
+                    />
+                  </div>
+                </div>
+                <!--Interest Rate-->
+                <div class="interest-section">
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Loan Amount</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="₹₹₹"
+                      aria-describedby="addon-wrapping"
+                      id="loan_val"
+                    />
+                  </div>
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Number Of Month</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Months"
+                      aria-describedby="addon-wrapping"
+                      id="month_val"
+                    />
+                  </div>
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Monthly Payment</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="₹₹₹"
+                      aria-describedby="addon-wrapping"
+                      id="interest_val"
+                    />
+                  </div>
+                </div>
+                <!-- Number Of Month  -->
+                <div class="month-section">
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Loan Amount</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="₹₹₹"
+                      aria-describedby="addon-wrapping"
+                      id="loan_val"
+                    />
+                  </div>
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Interest Rate</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="%"
+                      aria-describedby="addon-wrapping"
+                      id="interest_val"
+                    />
+                  </div>
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Monthly Payment</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="₹₹₹"
+                      aria-describedby="addon-wrapping"
+                      id="mpay_val"
+                    />
+                  </div>
+                </div>
+                <!-- Monthly Payment -->
+                <div class="mpay-section">
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Loan Amount</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="₹₹₹"
+                      aria-describedby="addon-wrapping"
+                      id="loan_val"
+                    />
+                  </div>
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Number Of Month</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Months"
+                      aria-describedby="addon-wrapping"
+                      id="month_val"
+                    />
+                  </div>
+                  <div class="input-group flex-nowrap mb-3" id="form-boxes">
+                    <span class="input-group-text w-50" id="addon-wrapping"
+                      >Interest Rate</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="%"
+                      id="interest_val"
+                     
+                    />
+                  </div>
+                </div>
+                <button
+                  class="btn btn-primary mb-2"
+                  id="calculate"
+                  type="submit"
+                  onsubmit="calc()"
+                >
+                  Calculate
+                </button>
+
+                <div>
+                  <div class=" card border-primary w-50 mb-2 text-start p-2" id="answer">
+                    Answer : 
+                  </p>
+                </div>
+              </center>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Boostrap JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
